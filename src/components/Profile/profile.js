@@ -58,10 +58,9 @@ const Profile = () => {
 
         try {
             // EmailJS configuration
-            // Replace these with your actual EmailJS credentials
-            const SERVICE_ID = 'YOUR_SERVICE_ID';
-            const TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-            const PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+            const SERVICE_ID = 'service_4qzbh1e';
+            const TEMPLATE_ID = 'template_zdc3rhf';
+            const PUBLIC_KEY = 'ifC51dGEGLR_2yy_A';
 
             await emailjs.send(
                 SERVICE_ID,
@@ -70,8 +69,7 @@ const Profile = () => {
                     from_name: formData.name,
                     from_email: formData.email,
                     phone: formData.mobile,
-                    message: formData.message,
-                    to_email: 'likithvishal20@gmail.com'
+                    message: formData.message
                 },
                 PUBLIC_KEY
             );

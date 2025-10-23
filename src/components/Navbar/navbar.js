@@ -75,9 +75,16 @@ const handleResumeClick = () => {
     window.open(resumePath, '_blank');
 };
 
+const handleLogoClick = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+};
+
     return (
         <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-            <img src={logo} alt="logo" className='logo'/>
+            <img src={logo} alt="logo" className='logo' onClick={handleLogoClick} style={{ cursor: 'pointer' }}/>
 
             <div className='menu-icon' onClick={() => setIsMenuOpen(!isMenuOpen)}>
                 {isMenuOpen ? <FaTimes /> : <FaBars />}

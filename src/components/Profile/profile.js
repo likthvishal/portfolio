@@ -5,11 +5,20 @@ import details from '../../assets/data.json'
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import LeftPanel from '../Left-panel/left-panel.js';
+import emailjs from '@emailjs/browser';
 
 const Profile = () => {
     const [isBrainOpen, setIsBrainOpen] = useState(false);
     const [showSparks, setShowSparks] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        mobile: '',
+        message: ''
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
 
     const scrollToSection = (sectionId) => {
         document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
@@ -18,6 +27,9 @@ const Profile = () => {
     const openModal = () => {
         setIsModalOpen(true);
         document.body.style.overflow = 'hidden';
+        // Reset form and status when opening modal
+        setFormData({ name: '', email: '', mobile: '', message: '' });
+        setSubmitStatus({ type: '', message: '' });
     };
 
     const closeModal = () => {
@@ -28,6 +40,60 @@ const Profile = () => {
     const handleModalClick = (e) => {
         if (e.target === e.currentTarget) {
             closeModal();
+        }
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setSubmitStatus({ type: '', message: '' });
+
+        try {
+            // EmailJS configuration
+            // Replace these with your actual EmailJS credentials
+            const SERVICE_ID = 'YOUR_SERVICE_ID';
+            const TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+            const PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+
+            await emailjs.send(
+                SERVICE_ID,
+                TEMPLATE_ID,
+                {
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    phone: formData.mobile,
+                    message: formData.message,
+                    to_email: 'likithvishal20@gmail.com'
+                },
+                PUBLIC_KEY
+            );
+
+            setSubmitStatus({
+                type: 'success',
+                message: 'Thank you! Your message has been sent successfully. I\'ll get back to you soon!'
+            });
+            setFormData({ name: '', email: '', mobile: '', message: '' });
+
+            // Close modal after 3 seconds on success
+            setTimeout(() => {
+                closeModal();
+            }, 3000);
+        } catch (error) {
+            console.error('EmailJS Error:', error);
+            setSubmitStatus({
+                type: 'error',
+                message: 'Oops! Something went wrong. Please try again or email me directly at likithvishal20@gmail.com'
+            });
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -342,16 +408,54 @@ const Profile = () => {
                     <button className='modal-close' onClick={closeModal}>×</button>
                     <div className='contact-form'>
                         <h3>Leave a message and let's connect!</h3>
-                        <form>
+                        {submitStatus.message && (
+                            <div className={`submit-message ${submitStatus.type}`}>
+                                {submitStatus.message}
+                            </div>
+                        )}
+                        <form onSubmit={handleSubmit}>
                             <label htmlFor="name">Name:</label>
-                            <input type="text" id="name" name="name" required></input>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleInputChange}
+                                required
+                                disabled={isSubmitting}
+                            />
                             <label htmlFor="email">Email:</label>
-                            <input type="email" id="email" name="email" required></input>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                required
+                                disabled={isSubmitting}
+                            />
                             <label htmlFor="mobile">Phone No:</label>
-                            <input type="mobile" id="mobile" name="mobile" required></input>
+                            <input
+                                type="tel"
+                                id="mobile"
+                                name="mobile"
+                                value={formData.mobile}
+                                onChange={handleInputChange}
+                                required
+                                disabled={isSubmitting}
+                            />
                             <label htmlFor="message">Message:</label>
-                            <textarea id="message" name="message" required></textarea>
-                            <button type="submit">Submit</button>
+                            <textarea
+                                id="message"
+                                name="message"
+                                value={formData.message}
+                                onChange={handleInputChange}
+                                required
+                                disabled={isSubmitting}
+                            />
+                            <button type="submit" disabled={isSubmitting}>
+                                {isSubmitting ? 'Sending...' : 'Submit'}
+                            </button>
                         </form>
                     </div>
                 </div>

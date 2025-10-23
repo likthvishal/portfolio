@@ -782,6 +782,115 @@
     transform: scale(1.3);
 }
 
+/* Publications */
+.publications-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.publication-item {
+    background: linear-gradient(135deg,
+        rgba(241, 242, 250, 0.8),
+        rgba(210, 214, 228, 0.6),
+        rgba(254, 254, 254, 0.9)
+    );
+    border-radius: 15px;
+    padding: 1.5rem 2rem;
+    border: 1px solid rgba(192, 38, 211, 0.2);
+    box-shadow: 0 4px 15px rgba(148, 152, 178, 0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.publication-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(135deg, #c026d3, #06b6d4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.publication-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 8px 25px rgba(192, 38, 211, 0.25);
+    border-color: rgba(192, 38, 211, 0.4);
+}
+
+.publication-item:hover::before {
+    opacity: 1;
+}
+
+.publication-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.8rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.publication-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    flex: 1;
+    min-width: 250px;
+}
+
+.publication-header a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.publication-header a:hover {
+    color: #c026d3;
+    text-shadow: 0 0 10px rgba(192, 38, 211, 0.3);
+}
+
+.publication-header a:hover h3 {
+    color: #c026d3;
+}
+
+.publication-year {
+    font-size: 0.9rem;
+    color: #525355;
+    opacity: 0.8;
+    white-space: nowrap;
+    background: linear-gradient(135deg, rgba(192, 38, 211, 0.1), rgba(6, 182, 212, 0.1));
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid rgba(192, 38, 211, 0.2);
+}
+
+.publication-authors {
+    font-size: 1rem;
+    color: #525355;
+    margin: 0.5rem 0;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.publication-venue {
+    font-size: 0.95rem;
+    color: #525355;
+    margin: 0.5rem 0 0 0;
+    opacity: 0.75;
+    font-style: italic;
+}
+
+.publication-header a:hover .arrow-icon {
+    transform: translate(3px, -3px);
+}
+
 /* Contact-me */
 .contact-div {
     display: flex;

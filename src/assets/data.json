@@ -51,6 +51,40 @@
             "location": "Dallas, TX"
         }
     },
+    "publications": {
+        "pub1": {
+            "title": "Deep Learning approach to Diffusion-based Image Classification with Timestep Conditioning",
+            "authors": "Gupta, Savyasachi, and Likith Vishal Boddeda",
+            "venue": "Under review at 1st IEEE International Conference on Recent Trends in Computing and Smart Mobility",
+            "year": "2024",
+            "link": "https://ieeexplore.ieee.org/conference/48644",
+            "status": "Under Review"
+        },
+        "pub2": {
+            "title": "Vision for Eyes",
+            "authors": "Pasam, J.R., Kasumurthy, S.R., Boddeda, L.V., Mandava, V., Sana, V.V.",
+            "venue": "Internet of Things and Connected Technologies. ICIoTCT 2021. Lecture Notes in Networks and Systems, vol 340. Springer, Cham",
+            "year": "2022",
+            "link": "https://link.springer.com/chapter/10.1007/978-3-030-94507-7_29",
+            "status": "Published"
+        },
+        "pub3": {
+            "title": "A Comparative Study of Classification Algorithms over Images using Machine Learning And Tensorflow",
+            "authors": "Likith Vishal B, Subhadra K, Sivalaya G",
+            "venue": "Research Publication",
+            "year": "2021",
+            "link": "",
+            "status": "Published"
+        },
+        "pub4": {
+            "title": "Image Classification Using Neural Networks and Tensor-flow",
+            "authors": "Boddeda, Likith & Pragathi, M & Amulya, P & Kumar, N. Suresh",
+            "venue": "Test Engineering and Management, 83",
+            "year": "2020",
+            "link": "http://www.testmagzine.biz/index.php/testmagzine/article/view/6800",
+            "status": "Published"
+        }
+    },
     "projects": {
         "1":{
             "name": "Churn Predictor",

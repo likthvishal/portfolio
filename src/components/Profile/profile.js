@@ -271,6 +271,28 @@ const Profile = () => {
                 ))}
             </div>
         </section>
+        <section id='publications' className='fade-in-section'>
+            <h2 className='section-heading' onClick={() => scrollToSection('publications')}>
+                <div className='highlight'>03.</div>Publications<div className='line'></div></h2>
+            <div className='publications-container'>
+                {Object.entries(details.publications).map(([key, publication]) => (
+                    <div key={key} className='publication-item scale-in'>
+                        <div className='publication-header'>
+                            {publication.link ? (
+                                <a href={publication.link} target="_blank" rel="noopener noreferrer">
+                                    <h3>{publication.title}<FaArrowUpRightFromSquare className='arrow-icon' /></h3>
+                                </a>
+                            ) : (
+                                <h3 style={{color: 'var(--accent-color)'}}>{publication.title}</h3>
+                            )}
+                            <span className='publication-year'>{publication.year} | {publication.status}</span>
+                        </div>
+                        <p className='publication-authors'>{publication.authors}</p>
+                        <p className='publication-venue'>{publication.venue}</p>
+                    </div>
+                ))}
+            </div>
+        </section>
         <section id='projects' className='fade-in-section'>
             <h2 className='section-heading' onClick={() => scrollToSection('projects')}>
                 <div className='highlight'>04.</div>Projects<div className='line'></div></h2>

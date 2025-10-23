@@ -177,11 +177,11 @@
         padding-left: 1%;
         padding-right: 1%;
     }
-    
+
     .spline-hero-container canvas {
         transform: scale(1.2);
     }
-    
+
     .welcome-content {
         max-width: 300px;
         width: 95%;
@@ -189,12 +189,41 @@
         margin: 0;
         min-height: 200px;
     }
-    
+
     .welcome-title {
         font-size: 1.5rem;
     }
-    
+
     .welcome-message {
         font-size: 1rem;
     }
+}
+
+/* Loading Spinner */
+.spline-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #F1F2FA 0%, #D2D6E4 30%, #FEFEFE 100%);
+    z-index: 5;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(192, 38, 211, 0.2);
+    border-top: 4px solid #c026d3;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    box-shadow: 0 0 20px rgba(192, 38, 211, 0.3);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

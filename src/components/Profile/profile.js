@@ -174,21 +174,24 @@ const Profile = () => {
         createElectricalEffect();
     };
 
-    // Intersection Observer for scroll animations
+    // Intersection Observer for scroll animations - Optimized
     useEffect(() => {
         const observerOptions = {
             root: null,
-            rootMargin: '0px',
-            threshold: 0.15
+            rootMargin: '50px', // Trigger animations earlier for smoother experience
+            threshold: 0.1 // Reduced threshold for faster triggering
         };
 
         const observerCallback = (entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                } else {
-                    entry.target.classList.remove('is-visible');
-                }
+            // Use requestAnimationFrame for better performance
+            window.requestAnimationFrame(() => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Unobserve after animation triggers (one-time animation)
+                        observer.unobserve(entry.target);
+                    }
+                });
             });
         };
 
@@ -199,7 +202,7 @@ const Profile = () => {
         animatedElements.forEach(el => observer.observe(el));
 
         return () => {
-            animatedElements.forEach(el => observer.unobserve(el));
+            observer.disconnect(); // More efficient than unobserving individually
         };
     }, []);
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import './navbar.css';
 import logo from '../../assets/logo.png';
 import { Link } from 'react-scroll';
@@ -9,49 +9,61 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState('about-me');
+    const ticking = useRef(false);
+
+    // Throttle utility for scroll events
+    const throttle = useCallback((callback) => {
+        if (!ticking.current) {
+            window.requestAnimationFrame(() => {
+                callback();
+                ticking.current = false;
+            });
+            ticking.current = true;
+        }
+    }, []);
 
     // Handle scroll effect for navbar shadow
     useEffect(() => {
         const handleScroll = () => {
-            const offset = window.scrollY;
-            if (offset > 50) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            }
+            throttle(() => {
+                const offset = window.scrollY;
+                setScrolled(offset > 50);
+            });
         };
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, [throttle]);
 
     // Track active section
     useEffect(() => {
         const handleScrollSpy = () => {
-            const sections = ['about-me', 'skills', 'experience', 'projects', 'contact'];
-            const scrollPosition = window.scrollY + 200;
+            throttle(() => {
+                const sections = ['about-me', 'skills', 'experience', 'projects', 'contact'];
+                const scrollPosition = window.scrollY + 200;
 
-            for (const section of sections) {
-                const element = document.getElementById(section);
-                if (element) {
-                    const offsetTop = element.offsetTop;
-                    const offsetBottom = offsetTop + element.offsetHeight;
+                for (const section of sections) {
+                    const element = document.getElementById(section);
+                    if (element) {
+                        const offsetTop = element.offsetTop;
+                        const offsetBottom = offsetTop + element.offsetHeight;
 
-                    if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-                        setActiveSection(section);
-                        break;
+                        if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+                            setActiveSection(section);
+                            break;
+                        }
                     }
                 }
-            }
+            });
         };
 
-        window.addEventListener('scroll', handleScrollSpy);
+        window.addEventListener('scroll', handleScrollSpy, { passive: true });
         return () => {
             window.removeEventListener('scroll', handleScrollSpy);
         };
-    }, []);
+    }, [throttle]);
 
     const menuItems = [
         { id: '01.', text: 'Home', link: 'about-me' },

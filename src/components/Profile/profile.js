@@ -288,7 +288,15 @@ const Profile = () => {
                             <span className='publication-year'>{publication.year} | {publication.status}</span>
                         </div>
                         <p className='publication-authors'>{publication.authors}</p>
-                        <p className='publication-venue'>{publication.venue}</p>
+                        {publication.conferenceLink ? (
+                            <p className='publication-venue'>
+                                <a href={publication.conferenceLink} target="_blank" rel="noopener noreferrer">
+                                    {publication.venue}
+                                </a>
+                            </p>
+                        ) : (
+                            <p className='publication-venue'>{publication.venue}</p>
+                        )}
                     </div>
                 ))}
             </div>

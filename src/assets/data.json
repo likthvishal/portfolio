@@ -1,0 +1,197 @@
+{
+    "profile-name": "Likith Vishal Boddeda",
+    "profile-description": "<p>AI & Data Solutions Engineer with expertise in architecting end-to-end solutions that integrate Web Development, AI, and Data Engineering. Passionate about transforming complex data into actionable insights and AI-driven automation leveraging modern web technologies, cloud services, and machine learning.</p>",
+    "about-me":{
+  "para1": "Passionate about engineering intelligent, high-performance AI systems that drive real-world impact through <strong>advanced machine learning, deep learning, and scalable deployment architectures</strong>. Experienced in developing <strong>multimodal AI solutions, optimizing model inference pipelines, and deploying production-ready systems</strong> that enhance automation, predictive analytics, and decision-making across autonomous and healthcare domains.",
+  
+  "para2": "<p>Currently holding a <strong>Master's in Computer Science from Westcliff University</strong> with a strong GPA of 3.81/4.0, specializing in <strong>Machine Learning, Deep Learning, and AI System Optimization</strong>. Actively seeking <strong>full-time opportunities in the U.S.</strong> to leverage advanced technical expertise in building next-generation AI solutions in a dynamic, innovation-driven environment.</p>",
+  
+  "para3": "<p>Currently serving as an <strong>ML Engineer</strong> at <a href='https://www.vsdinfotech.com/' target='_blank' rel='noopener noreferrer'>VSD Infotech</a>, pioneering the development of <strong>cutting-edge multimodal AI systems that integrate real-time video, lidar, and sensor data</strong> for autonomous environments. Achieved a <strong>40% performance boost in model inference using NVIDIA TensorRT and Triton Inference Server</strong>, while designing <strong>scalable MLOps pipelines that reduced iteration cycles by 35% and operational costs by 20%</strong>. Successfully integrated <strong>Retrieval-Augmented Generation (RAG) frameworks</strong> for intelligent video summarization and developed <strong>attention-based models</strong> for enhanced predictive analytics in complex video streams.</p>",
+  
+  "para4": "<p>Demonstrated research excellence through <strong>multiple publications in image classification, deep learning, and computer vision</strong>, with work under review at IEEE conferences. Built diverse AI applications spanning <strong>sentiment analysis with GPT-4 and Gemini APIs achieving 90% accuracy</strong>, multimodal generative AI systems with Gemini Pro, and <strong>healthcare-focused solutions for real-time nutritional analysis</strong>. Currently developing an ambitious <strong>AI-driven healthcare documentation system integrating speech recognition, NLP, and LLMs with HIPAA-compliant architecture</strong> for clinical workflow enhancement.</p>",
+  
+  "para5": "<p>Deeply committed to solving <strong>complex AI challenges</strong> through <strong>scalable architectures, intelligent automation, and cutting-edge deep learning integration</strong>. Always looking to collaborate on <strong>high-impact projects at the intersection of machine learning, computer vision, and production AI systems</strong>.</p>"
+},
+    "emails": ["likithvishal20@gmail.com","l.boddeda.243@westcliff.edu"],
+    "resume": "Abhishek Agrawal Resume.pdf",
+    "experiences": {
+        "exp1": {
+            "name": "Gitam University@https://www.gitam.edu/",
+            "years": "Jun 2017 - May 2021",
+            "position": "Bachelors in Computer Science and Engineering",
+            "comment": "",
+            "location": "Visakhapatnam, AP, India"
+        },
+         "exp2": {
+            "name": "Symbiosys Technologies@https://symbiosystech.com/",
+            "years": "Sep 2020 - Mar 2021",
+            "position": "Bachelors in Computer Science and Engineering",
+            "comment": "",
+            "location": "Visakhapatnam, AP, India"
+        },
+        "exp3": {
+            "name": "AR Counsultancy Services@https://in.linkedin.com/company/ar-consultancyservices",
+            "years": "Aug 2021 - Sep 2024",
+            "position": "Data Science Practioner",
+            "comment": "",
+            "location": "Nagpur, MH"
+        },
+        "exp4": {
+             "name": "Westcliff University University@https://www.westcliff.edu/",
+            "years": "Mar 2022 - Feb 2024",
+            "position": "Masters in Computer Science",
+            "comment": "",
+            "location": "Irvine, CA"
+        },
+        "exp5": {
+            "name": "CISCO (via VSD Infotech)@https://www.vsdinfo.com/",
+            "years": "Oct 2024 - present",
+            "position": "ML Engineer",
+            "comment": "",
+            "location": "Dallas, TX"
+        }
+    },
+    "projects": {
+        "1":{
+            "name": "Churn Predictor",
+            "description": "A Churn Prediction Machine Learning Pipeline achieving 96.3% accuracy, designed to proactively reduce churn by delivering personalized incentives and targeted offers.",
+            "image": "churn-predictor.png",
+            "link": "",
+            "github": "https://github.com/agrawalabr/churn-predictor",
+            "skills": ["AWS", "Python", "Scikit-learn", "Pandas", "github"]
+        },
+        "2": {
+            "name": "AI-Powered Intelligent Assistant",
+            "description": "An all-in-one web application leveraging NLP, machine learning, and OpenAI services to enable automated document workflows, intelligent knowledge retrieval, and secure role-based access, enhancing operational efficiency and decision intelligence.",
+            "image": "ai-assistant.png",
+            "link": "",
+            "github": "",
+            "skills": ["AWS", "OpenAI", "NLTK", "Flask"]
+        },
+        "3": {
+            "name": "Metadata-Driven Data Pipeline Manager",
+            "description": "A dynamic web service automating data pipeline orchestration, management, and sharing across Snowflake, S3, Databricks and other data warehouses, enhancing efficiency and scalability.",
+            "image": "Metadata-Driven Data Pipeline Manager.png",
+            "link": "",
+            "github": "",
+            "skills": ["AWS", "Snowflake", "Databricks", "Python", "Scala", "Airflow"]
+        },
+        "4": {
+            "name": "Abhishek Agrawal's Portfolio",
+            "description": "A portfolio website built with a modern tech stack, featuring an intuitive interface to showcase my projects, skills, and experiences, with seamless navigation and optimized performance.",
+            "image": "portfolio.png",
+            "link": "https://agrawalabr-portfolio.web.app",
+            "github": "https://github.com/agrawalabr/portfolio",
+            "skills": ["React", "HTML", "CSS", "Javascript", "github"]
+        },
+        "5": {
+            "name": "Store Management System",
+            "description": "A metadata-driven web application integrated with RFID technology, enabling real-time tracking, automated stock updates, and enhanced security for efficient inventory management.",
+            "image": "jstock.png",
+            "link": "",
+            "github": "",
+            "skills": ["AWS", "Angular", "Flask", "PostgreSQL"]
+        },
+        "6":{
+            "name": "Multilingual Transliterator",
+            "description": "A metadata-driven web application integrated with RFID technology, enabling real-time tracking, automated stock updates, and enhanced security for efficient inventory management.",
+            "image": "transliterator.png",
+            "link": "",
+            "github": "",
+            "skills": ["Python", "Tkinter", "G-Translate", "SQLite3"]
+        }
+    },
+    "skills": {
+        "Programming": {
+            "Python": "FaPython",
+            "Javascript": "SiJavascript",
+            "HTML": "SiHtml5",
+            "CSS": "SiCss3",
+            "Linux/Shell ": "SiLinux",
+            "JAVA": "FaJava",
+            "C": "SiC",
+            "C++": "SiCplusplus"
+        },
+        "Machine Learning": {
+            "Scikit-learn": "SiScikitlearn",
+            "Pytorch": "SiPytorch",
+            "TensorFlow": "SiTensorflow",
+            "Keras": "SiKeras",
+            "XGBoost": "TbChartBar",
+            "Random Forest": "TbTrees",
+            "SVM": "TbVectorTriangle",
+            "Decision Trees": "TbBinaryTree",
+            "Ensemble Methods": "TbLayoutGrid",
+            "Regression": "GoGraph",
+            "Classification": "TbCategory2",
+            "Clustering": "PiGraphThin",
+            "PCA": "TbArrowsJoin2",
+            "Feature Engineering": "TbTool",
+            "Cross-Validation": "TbArrowsShuffle",
+            "NLTK": "FaPython"
+        },
+        "Deep Learning": {
+            "CNNs": "TbBrain",
+            "RNNs/LSTMs": "TbTimeline",
+            "GANs": "TbSparkles",
+            "Transformers": "TbTransform",
+            "Computer Vision": "TbEye",
+            "Object Detection": "TbScan",
+            "Image Segmentation": "TbPhotoEdit",
+            "Transfer Learning": "TbArrowsExchange",
+            "Model Optimization": "TbBolt"
+        },
+        "NLP": {
+            "BERT": "TbFileText",
+            "GPT/LLMs": "TbRobot",
+            "Transformers": "TbTransform",
+            "NER": "TbTags",
+            "Sentiment Analysis": "TbMoodHappy",
+            "Text Classification": "TbCategory",
+            "RAG": "TbDatabase",
+            "Speech Recognition": "TbMicrophone",
+            "Machine Translation": "TbLanguage"
+        },
+        "ML Engineering & Operations": {
+            "Docker": "SiDocker",
+            "MLOps Pipelines": "GoWorkflow",
+            "Model Monitoring": "TbChartLine",
+            "Data Pipelines": "TbNetwork",
+            "Experimental Design & Evaluation": "GoBeaker",
+            "A/B Testing": "TbArrowsSplit2",
+            "Hyperparameter Tuning": "TbAdjustments",
+            "DVC": "SiDvc",
+            "Weights & Biases": "SiWeightsandbiases"
+        },
+        "Cloud Technologies":{
+            "AWS": "FaAws",
+            "AZURE": "VscAzure",
+            "Databricks": "SiDatabricks",
+            "Snowflake": "SiSnowflake"
+        },
+        "Data Technologies": {
+            "SQL": "SiPostgresql",
+            "NoSQL": "SiMongodb",
+            "Airflow": "SiApacheairflow",
+            "Tableau": "SiTableau",
+            "Kafka": "SiApachekafka"
+        },
+        "Web Development": {
+            "React": "SiReact",
+            "Angular": "SiAngular",
+            "Adobe Tools": "SiAdobe",
+            "CI/CD": "IoInfinite",
+            "Git": "SiGit",
+            "Postman": "SiPostman"
+        },
+        "Agile Methodologies": {
+            "Jira": "SiJira",
+            "Confluence": "SiConfluence"
+        },
+        "Hardware": {
+            "Arduino": "SiArduino",
+            "NodeMCU": "IoHardwareChip",
+            "Raspberry Pi": "SiRaspberrypi"
+        }
+    }
+}

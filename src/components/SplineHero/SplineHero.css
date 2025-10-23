@@ -1,0 +1,200 @@
+.spline-hero-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(90deg, #F1F2FA 0%, #D2D6E4 30%, #FEFEFE 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    position: relative;
+}
+
+.spline-hero-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(148, 152, 178, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 152, 178, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.spline-hero-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 50px 50px, #FEFEFE 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.spline-hero-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%;
+    transform: scale(1.5);
+    transform-origin: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Welcome Overlay */
+.welcome-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 2%;
+    padding-right: 60%;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.welcome-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+        rgba(241, 242, 250, 0.15),
+        rgba(210, 214, 228, 0.1),
+        rgba(148, 152, 178, 0.05)
+    );
+    z-index: -1;
+}
+
+.welcome-content {
+    text-align: left;
+    padding: 2rem 1.5rem;
+    background: linear-gradient(135deg,
+        rgba(241, 242, 250, 0.25),
+        rgba(210, 214, 228, 0.2),
+        rgba(148, 152, 178, 0.15)
+    );
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow:
+        0 8px 32px rgba(148, 152, 178, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -1px 0 rgba(148, 152, 178, 0.1);
+    max-width: 450px;
+    width: 100%;
+    margin: 0;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcome-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    color: #525355;
+    text-shadow: 0 0 10px rgba(82, 83, 85, 0.3);
+}
+
+.neon-purple {
+    background: linear-gradient(135deg, #c026d3, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 20px rgba(192, 38, 211, 0.5);
+    animation: neon-glow 2s ease-in-out infinite alternate;
+}
+
+.welcome-message {
+    font-size: 1.2rem;
+    color: #525355;
+    margin: 0;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+@keyframes neon-glow {
+    0% {
+        text-shadow: 0 0 20px rgba(192, 38, 211, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 30px rgba(192, 38, 211, 0.8), 0 0 40px rgba(6, 182, 212, 0.3);
+    }
+}
+
+@media (max-width: 900px) {
+    .spline-hero-container {
+        height: 80vh;
+        justify-content: center;
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    
+    .spline-hero-container canvas {
+        transform: scale(1.3);
+    }
+    
+    .welcome-content {
+        max-width: 400px;
+        width: 90%;
+        padding: 2rem 1.5rem;
+        margin: 0;
+        min-height: 250px;
+    }
+    
+    .welcome-title {
+        font-size: 2rem;
+    }
+    
+    .welcome-message {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .spline-hero-container {
+        height: 70vh;
+        justify-content: center;
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+    
+    .spline-hero-container canvas {
+        transform: scale(1.2);
+    }
+    
+    .welcome-content {
+        max-width: 300px;
+        width: 95%;
+        padding: 1.5rem 1rem;
+        margin: 0;
+        min-height: 200px;
+    }
+    
+    .welcome-title {
+        font-size: 1.5rem;
+    }
+    
+    .welcome-message {
+        font-size: 1rem;
+    }
+}

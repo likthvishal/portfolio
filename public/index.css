@@ -1,0 +1,29 @@
+:root {
+    --background-color: #FEFEFE;
+    --text-color: #525355;
+    --text-size: 14px;
+    --screen-height: 80vh;
+    --accent-color: #c026d3;
+    --accent-secondary: #06b6d4;
+    --panel-bg: #F1F2FA;
+    --glow-purple: rgba(192, 38, 211, 0.3);
+    --glow-cyan: rgba(6, 182, 212, 0.3);
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(90deg, #F1F2FA 0%, #D2D6E4 30%, #FEFEFE 100%);
+    color: var(--text-color);
+    font-family: 'Apple Braille', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-size: var(--text-size);
+  }
+  
+  .app-root{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }

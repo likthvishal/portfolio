@@ -1,0 +1,86 @@
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.content-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 0;
+  position: relative;
+}
+
+.vertical-div {
+  max-width: 95%;
+  display: grid;
+  grid-template-areas: 'main right-panel';
+  grid-template-columns: 1fr auto;
+  justify-self: center;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* BACKUP: Uncomment these when restoring left panel
+.vertical-div {
+  grid-template-areas: 'left-panel main right-panel';
+  grid-template-columns: 2fr 4.5fr auto;
+}
+
+.left-panel {
+  grid-area: left-panel;
+  align-content: center;
+  justify-items: center;
+}
+*/
+
+.profile {
+  grid-area: main;
+}
+
+.right-panel {
+  grid-area: right-panel;
+}
+
+@media (max-width: 900px) or (main-width: 450px) {
+  .content-wrapper {
+    padding-top: 0;
+  }
+
+  .vertical-div {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 95%;
+  }
+
+  .right-panel {
+    display: none;
+  }
+}
+
+@media (max-width: 450px) {
+  .content-wrapper {
+    padding-top: 0;
+  }
+
+  .vertical-div {
+    display: flex;
+    flex-direction: column;
+    max-width: 95%;
+    padding: 1rem 0;
+  }
+
+  .right-panel {
+    display: none;
+  }
+}

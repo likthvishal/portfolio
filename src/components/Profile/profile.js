@@ -328,11 +328,11 @@ const Profile = () => {
             </div>
         )}
         <section className="footer">
-            <a className="built-by" href="https://github.com/agrawalabr/portfolio" target="_blank" rel="noopener noreferrer">
-                <div>Designed &amp; Built by Abhishek Agrawal</div>
+            <a className="built-by" href="https://github.com/likthvishal/portfolio" target="_blank" rel="noopener noreferrer">
+                <div>Designed &amp; Built by Likith Vishal Boddeda</div>
             </a>
             <div className="copy-right">
-                <span>Copyright &copy; 2024 Abhishek Agrawal | All rights reserved.</span>
+                <span>Copyright &copy; 2025 Likith Vishal Boddeda | All rights reserved.</span>
             </div>
         </section>
       </div>

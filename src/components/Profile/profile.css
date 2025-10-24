@@ -517,6 +517,9 @@
     margin-bottom: 10px;
     transition: all 0.3s ease;
     color: #525355;
+    /* Performance optimization */
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .skills-item:hover {
@@ -918,16 +921,18 @@
     justify-content: center;
     margin: 0 auto;
     position: relative;
-    background-image: 
-        linear-gradient(rgba(241, 242, 250, 0.8), rgba(210, 214, 228, 0.6)),
+    background-image:
+        linear-gradient(rgba(241, 242, 250, 0.9), rgba(210, 214, 228, 0.8)),
         url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(148,152,178,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
     background-size: cover, 50px 50px;
     background-position: center, 0 0;
-    background-attachment: fixed;
     border-radius: 20px;
     padding: 3rem 2rem;
     margin: 2rem 0;
     box-shadow: 0 8px 32px rgba(148, 152, 178, 0.2);
+    /* Performance optimization */
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 /* Contact Now Widget */
@@ -1255,15 +1260,18 @@ html {
         0 8px 32px rgba(148, 152, 178, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.4),
         inset 0 -1px 0 rgba(148, 152, 178, 0.2);
-    background: linear-gradient(135deg, 
-        rgba(241, 242, 250, 0.2), 
-        rgba(210, 214, 228, 0.15),
-        rgba(148, 152, 178, 0.1)
+    background: linear-gradient(135deg,
+        rgba(241, 242, 250, 0.95),
+        rgba(210, 214, 228, 0.92),
+        rgba(148, 152, 178, 0.88)
     );
-    backdrop-filter: blur(25px) saturate(180%);
-    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     transition: all 0.3s ease;
     overflow: hidden;
+    /* Performance optimization */
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .contact-form::before {
@@ -1312,18 +1320,20 @@ html {
     padding: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 12px;
-    background: linear-gradient(135deg, 
-        rgba(241, 242, 250, 0.15), 
-        rgba(210, 214, 228, 0.1)
+    background: linear-gradient(135deg,
+        rgba(241, 242, 250, 0.85),
+        rgba(210, 214, 228, 0.80)
     );
-    backdrop-filter: blur(15px) saturate(150%);
-    -webkit-backdrop-filter: blur(15px) saturate(150%);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
     color: #525355;
     transition: all 0.3s ease;
     font-size: 0.95rem;
-    box-shadow: 
+    box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.3),
         inset 0 -1px 0 rgba(148, 152, 178, 0.1);
+    /* Performance optimization */
+    will-change: transform;
 }
 
 .contact-form input:focus, .contact-form textarea:focus {

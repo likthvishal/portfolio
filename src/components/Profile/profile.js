@@ -25,27 +25,18 @@ const Profile = () => {
     };
 
     const openModal = () => {
-        // Save current scroll position
-        const scrollY = window.scrollY;
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${scrollY}px`;
-        document.body.style.width = '100%';
-
         setIsModalOpen(true);
+        document.body.style.overflow = 'hidden';
+        document.body.style.paddingRight = '15px'; // Prevent layout shift from scrollbar
         // Reset form and status when opening modal
         setFormData({ name: '', email: '', mobile: '', message: '' });
         setSubmitStatus({ type: '', message: '' });
     };
 
     const closeModal = () => {
-        // Restore scroll position
-        const scrollY = document.body.style.top;
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.width = '';
-        window.scrollTo(0, parseInt(scrollY || '0') * -1);
-
         setIsModalOpen(false);
+        document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
     };
 
     const handleModalClick = (e) => {

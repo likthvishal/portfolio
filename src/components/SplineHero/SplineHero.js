@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState, Suspense, lazy } from 'react';
 import './SplineHero.css';
+import { FaGithub, FaLinkedin, FaPhone } from 'react-icons/fa';
 
 // Lazy load Spline to reduce initial bundle size
 const Spline = lazy(() => import('@splinetool/react-spline'));
@@ -113,8 +114,22 @@ const SplineHero = () => {
                         <span className='neon-purple'>Likith Vishal</span>
                     </h1>
                     <p className='welcome-message'>
-                        Thanks for visiting my website, please feel free to explore my portfolio
+                        Hey there! Thank you for visiting my website and let's join hands together to be a part of the revolution
                     </p>
+                    <div className='hero-social-buttons'>
+                        <a href="https://github.com/likthvishal" target="_blank" rel="noopener noreferrer" className='hero-social-btn'>
+                            <FaGithub className="hero-social-icon" />
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/likith-vishal-1aa45114a/" target="_blank" rel="noopener noreferrer" className='hero-social-btn'>
+                            <FaLinkedin className="hero-social-icon" />
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="tel:+14087526185" className='hero-social-btn'>
+                            <FaPhone className="hero-social-icon" />
+                            <span>Phone</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

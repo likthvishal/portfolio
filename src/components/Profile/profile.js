@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import './profile.css'
 import parse from 'html-react-parser';
 import details from '../../assets/data.json'
@@ -404,8 +405,8 @@ const Profile = () => {
             </div>
         </section>
 
-        {/* Modal */}
-        {isModalOpen && (
+        {/* Modal rendered to document body using portal */}
+        {isModalOpen && createPortal(
             <div className='modal-overlay active' onClick={handleModalClick}>
                 <div className='modal-content'>
                     <button className='modal-close' onClick={closeModal}>×</button>
@@ -437,14 +438,13 @@ const Profile = () => {
                                 required
                                 disabled={isSubmitting}
                             />
-                            <label htmlFor="mobile">Phone No:</label>
+                            <label htmlFor="mobile">Phone No: (Optional)</label>
                             <input
                                 type="tel"
                                 id="mobile"
                                 name="mobile"
                                 value={formData.mobile}
                                 onChange={handleInputChange}
-                                required
                                 disabled={isSubmitting}
                             />
                             <label htmlFor="message">Message:</label>
@@ -462,8 +462,10 @@ const Profile = () => {
                         </form>
                     </div>
                 </div>
-            </div>
+            </div>,
+            document.body
         )}
+
         <section className="footer">
             <a className="built-by" href="https://github.com/likthvishal/portfolio" target="_blank" rel="noopener noreferrer">
                 <div>Designed &amp; Built by Likith Vishal Boddeda</div>

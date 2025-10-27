@@ -511,22 +511,72 @@
     justify-content: center;
     gap: 1rem;
     padding: 10px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #F1F2FA, #D2D6E4);
-    border: 1px solid rgba(148, 152, 178, 0.3);
+    position: relative;
+    overflow: hidden;
+    
+    /* Liquid Glass Effect for skill buttons */
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(240, 250, 255, 0.10) 25%,
+        rgba(230, 245, 255, 0.08) 50%,
+        rgba(240, 250, 255, 0.10) 75%,
+        rgba(255, 255, 255, 0.12) 100%
+    );
+    
+    /* Strong liquid glass blur */
+    backdrop-filter: blur(20px) saturate(170%) brightness(105%) contrast(105%);
+    -webkit-backdrop-filter: blur(20px) saturate(170%) brightness(105%) contrast(105%);
+    
+    border-radius: 16px;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
     margin-bottom: 10px;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     color: #525355;
+    
+    /* Liquid glass depth shadows */
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.2),
+        0 4px 16px rgba(0, 0, 0, 0.06),
+        0 8px 24px rgba(0, 0, 0, 0.03),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    
     /* Performance optimization */
-    will-change: transform;
-    transform: translateZ(0);
+    will-change: transform, backdrop-filter;
+}
+
+.skills-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+    z-index: 0;
+}
+
+.skills-item:hover::before {
+    left: 100%;
 }
 
 .skills-item:hover {
-    background: linear-gradient(135deg, rgba(192, 38, 211, 0.2), rgba(6, 182, 212, 0.1));
-    border-color: var(--accent-color);
-    box-shadow: 0 0 15px var(--glow-purple);
-    transform: translateY(-2px);
+    /* Enhanced liquid glass on hover */
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.18) 0%,
+        rgba(240, 250, 255, 0.16) 25%,
+        rgba(192, 38, 211, 0.15) 50%,
+        rgba(240, 250, 255, 0.16) 75%,
+        rgba(255, 255, 255, 0.18) 100%
+    );
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.3),
+        0 6px 24px rgba(0, 0, 0, 0.1),
+        0 12px 40px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7),
+        0 0 20px rgba(192, 38, 211, 0.2);
+    transform: translateY(-3px) scale(1.02);
     color: #141415;
 }
 
@@ -534,10 +584,13 @@
     color: #525355;
     font-size: 1.2rem;
     transition: color 0.3s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .skills-item:hover .social-icon {
     color: #141415;
+    filter: drop-shadow(0 0 8px rgba(192, 38, 211, 0.4));
 }
 
 /* Experiences */
@@ -684,8 +737,8 @@
 
 /* Projects */
 .project-container {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+    display: flex; /* Changed from grid to flex since no images */
+    flex-direction: column;
     gap: 0.5rem;
     min-height: 9rem;
     padding: 1.5rem;
@@ -701,7 +754,7 @@
     box-shadow: 0 0 15px var(--glow-purple);
     border-radius: 0.8rem;
     overflow: hidden;
-    display: flex;
+    display: none; /* Hidden for now */
     align-items: center;
     transition: all 0.3s ease;
 }
@@ -754,16 +807,70 @@
 }
 
 .resources span {
-    background: linear-gradient(135deg, rgba(192, 38, 211, 0.2), rgba(6, 182, 212, 0.2));
-    border: 1px solid rgba(192, 38, 211, 0.3);
-    padding: 0.2rem 0.5rem;
+    position: relative;
+    overflow: hidden;
+    
+    /* Liquid Glass Effect for project skills */
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(240, 250, 255, 0.10) 25%,
+        rgba(230, 245, 255, 0.08) 50%,
+        rgba(240, 250, 255, 0.10) 75%,
+        rgba(255, 255, 255, 0.12) 100%
+    );
+    
+    /* Strong liquid glass blur */
+    backdrop-filter: blur(20px) saturate(170%) brightness(105%) contrast(105%);
+    -webkit-backdrop-filter: blur(20px) saturate(170%) brightness(105%) contrast(105%);
+    
     border-radius: 1rem;
-    transition: all 0.3s ease;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    padding: 0.3rem 0.8rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Liquid glass depth shadows */
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.2),
+        0 2px 8px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    
+    /* Performance optimization */
+    will-change: transform, backdrop-filter;
+}
+
+.resources span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+    z-index: 0;
+}
+
+.resources span:hover::before {
+    left: 100%;
 }
 
 .resources span:hover {
-    background: linear-gradient(135deg, rgba(192, 38, 211, 0.4), rgba(6, 182, 212, 0.4));
-    box-shadow: 0 0 10px var(--glow-purple);
+    /* Enhanced liquid glass on hover */
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.18) 0%,
+        rgba(240, 250, 255, 0.16) 25%,
+        rgba(192, 38, 211, 0.15) 50%,
+        rgba(240, 250, 255, 0.16) 75%,
+        rgba(255, 255, 255, 0.18) 100%
+    );
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.3),
+        0 4px 16px rgba(0, 0, 0, 0.08),
+        0 6px 20px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7),
+        0 0 15px rgba(192, 38, 211, 0.2);
+    transform: translateY(-2px) scale(1.03);
 }
 
 .arrow-icon {
@@ -1034,24 +1141,20 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg,
-        rgba(241, 242, 250, 0.3),
-        rgba(210, 214, 228, 0.2),
-        rgba(148, 152, 178, 0.1)
-    );
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
     backdrop-filter: blur(8px) saturate(120%);
     -webkit-backdrop-filter: blur(8px) saturate(120%);
-    z-index: 1000;
+    z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    /* Performance optimization */
-    will-change: opacity, visibility;
+    margin: 0;
+    padding: 0;
 }
 
 .modal-overlay.active {
@@ -1060,41 +1163,155 @@
 }
 
 .modal-content {
-    background: linear-gradient(135deg,
-        rgba(241, 242, 250, 0.95),
-        rgba(210, 214, 228, 0.9),
-        rgba(148, 152, 178, 0.85)
+    /* Advanced Glass Effect - Droip-inspired */
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.05) 100%
     );
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    
+    /* Multi-layer backdrop for depth */
+    backdrop-filter: 
+        blur(20px) 
+        saturate(180%) 
+        contrast(120%) 
+        brightness(110%);
+    -webkit-backdrop-filter: 
+        blur(20px) 
+        saturate(180%) 
+        contrast(120%) 
+        brightness(110%);
+    
+    /* Simple centering without absolute positioning */
+    transform: scale(0.8);
+    transform-style: preserve-3d;
+    
+    /* Enhanced borders with prism effect */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-image: linear-gradient(45deg, 
+        rgba(192, 38, 211, 0.3), 
+        rgba(255, 255, 255, 0.4), 
+        rgba(6, 182, 212, 0.3)
+    ) 1;
+    
     border-radius: 20px;
     padding: 2.5rem;
     max-width: 500px;
     width: 90%;
-    max-height: 80vh;
+    max-height: 90vh;
     overflow-y: auto;
+    margin: 0 auto;
+    
+    /* Advanced lighting and depth shadows */
     box-shadow:
-        0 8px 32px rgba(148, 152, 178, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4),
-        inset 0 -1px 0 rgba(148, 152, 178, 0.2);
-    transform: scale(0.8) translateY(50px) translateZ(0);
-    transition: all 0.3s ease;
+        /* Outer glow */
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        /* Main shadow with depth */
+        0 8px 32px rgba(0, 0, 0, 0.15),
+        0 16px 64px rgba(0, 0, 0, 0.1),
+        /* Inner highlights for glass depth */
+        inset 0 1px 0 rgba(255, 255, 255, 0.6),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1),
+        /* Prism dispersion effect */
+        0 0 20px rgba(192, 38, 211, 0.1),
+        0 0 40px rgba(6, 182, 212, 0.05);
+    
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    /* Performance optimization */
-    will-change: transform, opacity;
+    overflow: hidden;
 }
 
 .modal-overlay.active .modal-content {
-    transform: scale(1) translateY(0) translateZ(0);
+    transform: scale(1);
+}
+
+/* Advanced Glass Depth Layers */
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 50%,
+        rgba(192, 38, 211, 0.05) 100%
+    );
+    border-radius: 20px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.modal-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,
+        rgba(6, 182, 212, 0.03) 0%,
+        transparent 30%,
+        transparent 70%,
+        rgba(192, 38, 211, 0.03) 100%
+    );
+    border-radius: 20px;
+    z-index: 2;
+    pointer-events: none;
+    animation: prismShift 4s ease-in-out infinite;
+}
+
+/* Prism dispersion animation */
+@keyframes prismShift {
+    0%, 100% { 
+        background: linear-gradient(45deg,
+            rgba(6, 182, 212, 0.03) 0%,
+            transparent 30%,
+            transparent 70%,
+            rgba(192, 38, 211, 0.03) 100%
+        );
+    }
+    50% { 
+        background: linear-gradient(45deg,
+            rgba(192, 38, 211, 0.03) 0%,
+            transparent 30%,
+            transparent 70%,
+            rgba(6, 182, 212, 0.03) 100%
+        );
+    }
+}
+
+/* Enhanced hover effects with refraction */
+.modal-content:hover {
+    transform: scale(1.02);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.2),
+        0 12px 40px rgba(0, 0, 0, 0.2),
+        0 20px 80px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.15),
+        0 0 30px rgba(192, 38, 211, 0.2),
+        0 0 60px rgba(6, 182, 212, 0.1);
+    border-color: rgba(192, 38, 211, 0.4);
+    backdrop-filter: 
+        blur(25px) 
+        saturate(200%) 
+        contrast(130%) 
+        brightness(120%);
+    -webkit-backdrop-filter: 
+        blur(25px) 
+        saturate(200%) 
+        contrast(130%) 
+        brightness(120%);
 }
 
 .modal-close {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: none;
-    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     font-size: 1.5rem;
     color: #525355;
     cursor: pointer;
@@ -1105,12 +1322,17 @@
     justify-content: center;
     border-radius: 50%;
     transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 2;
 }
 
 .modal-close:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(192, 38, 211, 0.2);
     color: #c026d3;
     transform: scale(1.1);
+    border-color: rgba(192, 38, 211, 0.3);
+    box-shadow: 0 4px 15px rgba(192, 38, 211, 0.3);
 }
 
 /* Custom Scrollbar Styling */
@@ -1316,20 +1538,23 @@ html {
 
 .contact-form input, .contact-form textarea {
     padding: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 12px;
     background: linear-gradient(135deg, 
-        rgba(241, 242, 250, 0.15), 
-        rgba(210, 214, 228, 0.1)
+        rgba(255, 255, 255, 0.2), 
+        rgba(255, 255, 255, 0.1)
     );
-    backdrop-filter: blur(15px) saturate(150%);
-    -webkit-backdrop-filter: blur(15px) saturate(150%);
+    backdrop-filter: blur(20px) saturate(180%) contrast(110%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) contrast(110%);
     color: #525355;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     font-size: 0.95rem;
     box-shadow: 
-        inset 0 1px 0 rgba(255, 255, 255, 0.3),
-        inset 0 -1px 0 rgba(148, 152, 178, 0.1);
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.05),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 3;
 }
 
 .contact-form input:focus, .contact-form textarea:focus {

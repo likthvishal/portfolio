@@ -66,7 +66,7 @@
     padding-left: 2%;
     padding-right: 60%;
     z-index: 10;
-    pointer-events: none;
+    pointer-events: none; /* Allow Spline canvas underneath to be interactive */
 }
 
 .welcome-overlay::before {
@@ -105,6 +105,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
+    /* Enable clicks on the content area */
+    pointer-events: auto;
 }
 
 .welcome-title {
@@ -226,4 +229,125 @@
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* Hero Social Buttons */
+.hero-social-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.hero-social-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    color: #525355;
+    position: relative;
+    overflow: hidden;
+    
+    /* Liquid Glass Effect for social buttons */
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(240, 250, 255, 0.10) 25%,
+        rgba(230, 245, 255, 0.08) 50%,
+        rgba(240, 250, 255, 0.10) 75%,
+        rgba(255, 255, 255, 0.12) 100%
+    );
+    
+    /* Strong liquid glass blur */
+    backdrop-filter: blur(20px) saturate(170%) brightness(105%) contrast(105%);
+    -webkit-backdrop-filter: blur(20px) saturate(170%) brightness(105%) contrast(105%);
+    
+    border-radius: 12px;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Liquid glass depth shadows */
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.2),
+        0 2px 12px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    
+    /* Performance optimization */
+    will-change: transform, backdrop-filter;
+    
+    /* Enable clicks */
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.hero-social-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+    z-index: 0;
+}
+
+.hero-social-btn:hover::before {
+    left: 100%;
+}
+
+.hero-social-btn:hover {
+    /* Enhanced liquid glass on hover */
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.18) 0%,
+        rgba(240, 250, 255, 0.16) 25%,
+        rgba(192, 38, 211, 0.15) 50%,
+        rgba(240, 250, 255, 0.16) 75%,
+        rgba(255, 255, 255, 0.18) 100%
+    );
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.3),
+        0 4px 16px rgba(0, 0, 0, 0.08),
+        0 6px 20px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7),
+        0 0 15px rgba(192, 38, 211, 0.2);
+    transform: translateY(-2px) scale(1.03);
+    color: var(--accent-color);
+}
+
+.hero-social-icon {
+    font-size: 1.2rem;
+    z-index: 1;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.hero-social-btn:hover .hero-social-icon {
+    filter: drop-shadow(0 0 8px rgba(192, 38, 211, 0.4));
+}
+
+.hero-social-btn span {
+    position: relative;
+    z-index: 1;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Responsive adjustments for hero buttons */
+@media (max-width: 550px) {
+    .hero-social-buttons {
+        gap: 0.8rem;
+        margin-top: 1rem;
+    }
+    
+    .hero-social-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .hero-social-icon {
+        font-size: 1rem;
+    }
 }

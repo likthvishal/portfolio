@@ -8,23 +8,134 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem 2rem;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    
+    /* Liquid Glass Effect - Ultra transparent with fluid gradients */
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(240, 250, 255, 0.12) 25%,
+        rgba(230, 245, 255, 0.10) 50%,
+        rgba(240, 250, 255, 0.12) 75%,
+        rgba(255, 255, 255, 0.15) 100%
+    );
+    
+    /* Strong liquid glass blur with enhanced saturation */
+    backdrop-filter: blur(30px) saturate(180%) brightness(110%) contrast(110%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%) brightness(110%) contrast(110%);
+    
     z-index: 1000;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 0 0 20px 20px;
-    box-shadow: 0 8px 32px rgba(148, 152, 178, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Liquid glass border with subtle tint */
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 0 0 28px 28px;
+    
+    /* Liquid glass depth shadows */
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.3),
+        0 8px 32px rgba(0, 0, 0, 0.08),
+        0 16px 64px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+    
     box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
 }
 
 .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    box-shadow: 0 8px 32px rgba(148, 152, 178, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Thicker liquid glass when scrolled */
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(240, 250, 255, 0.22) 25%,
+        rgba(230, 245, 255, 0.20) 50%,
+        rgba(240, 250, 255, 0.22) 75%,
+        rgba(255, 255, 255, 0.25) 100%
+    );
+    
+    /* Increased blur for thicker liquid glass */
+    backdrop-filter: blur(40px) saturate(200%) brightness(115%) contrast(115%);
+    -webkit-backdrop-filter: blur(40px) saturate(200%) brightness(115%) contrast(115%);
+    
+    /* Enhanced liquid glass shadows */
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.4),
+        0 12px 48px rgba(0, 0, 0, 0.12),
+        0 24px 80px rgba(0, 0, 0, 0.08),
+        inset 0 2px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.08);
+    
+    border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Liquid glass refraction layer */
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(240, 250, 255, 0.2) 30%,
+        transparent 60%,
+        rgba(230, 245, 255, 0.15) 100%
+    );
+    border-radius: 0 0 28px 28px;
+    z-index: 1;
+    pointer-events: none;
+    /* Liquid surface ripple effect */
+    animation: liquidRipple 4s ease-in-out infinite;
+}
+
+@keyframes liquidRipple {
+    0%, 100% { 
+        opacity: 0.6;
+        transform: translateY(0);
+    }
+    50% { 
+        opacity: 0.8;
+        transform: translateY(-2px);
+    }
+}
+
+/* Liquid glass dispersion layer */
+.navbar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,
+        rgba(6, 182, 212, 0.1) 0%,
+        transparent 20%,
+        transparent 80%,
+        rgba(192, 38, 211, 0.1) 100%
+    );
+    border-radius: 0 0 28px 28px;
+    z-index: 2;
+    pointer-events: none;
+    animation: liquidPrismShift 6s ease-in-out infinite;
+}
+
+@keyframes liquidPrismShift {
+    0%, 100% { 
+        background: linear-gradient(45deg,
+            rgba(6, 182, 212, 0.12) 0%,
+            transparent 25%,
+            transparent 75%,
+            rgba(192, 38, 211, 0.12) 100%
+        );
+    }
+    50% { 
+        background: linear-gradient(45deg,
+            rgba(192, 38, 211, 0.12) 0%,
+            transparent 25%,
+            transparent 75%,
+            rgba(6, 182, 212, 0.12) 100%
+        );
+    }
 }
 
 .logo {
@@ -32,6 +143,8 @@
     height: 4rem;
     width: 4rem;
     transition: transform 0.3s ease;
+    position: relative;
+    z-index: 3;
 }
 
 .logo:hover {
@@ -42,8 +155,96 @@
     margin-left: auto;
     margin-right: 2rem;
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     align-items: center;
+    position: relative;
+    z-index: 3;
+    
+    /* Droip Glass Frame Container - Single frame for all buttons */
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(240, 248, 255, 0.10) 50%,
+        rgba(230, 240, 255, 0.08) 100%
+    );
+    
+    /* Droip features: Strong blur + refraction + dispersion */
+    backdrop-filter: blur(25px) saturate(180%) brightness(105%) contrast(105%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%) brightness(105%) contrast(105%);
+    
+    /* Soft, rounded edges */
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    
+    /* Droip-style depth shadows */
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.2),
+        0 4px 24px rgba(0, 0, 0, 0.08),
+        0 8px 40px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+    
+    padding: 0.5rem 1rem;
+    overflow: hidden;
+}
+
+/* Droip depth layer for menu glass frame */
+.menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        transparent 50%,
+        rgba(192, 38, 211, 0.05) 100%
+    );
+    border-radius: 20px;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* Droip dispersion layer for menu glass frame */
+.menu::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,
+        rgba(6, 182, 212, 0.03) 0%,
+        transparent 30%,
+        transparent 70%,
+        rgba(192, 38, 211, 0.03) 100%
+    );
+    border-radius: 20px;
+    z-index: -1;
+    pointer-events: none;
+    animation: menuPrismShift 8s ease-in-out infinite;
+    opacity: 0.5;
+}
+
+/* Droip prism animation for menu */
+@keyframes menuPrismShift {
+    0%, 100% { 
+        background: linear-gradient(45deg,
+            rgba(6, 182, 212, 0.03) 0%,
+            transparent 30%,
+            transparent 70%,
+            rgba(192, 38, 211, 0.03) 100%
+        );
+    }
+    50% { 
+        background: linear-gradient(45deg,
+            rgba(192, 38, 211, 0.03) 0%,
+            transparent 30%,
+            transparent 70%,
+            rgba(6, 182, 212, 0.03) 100%
+        );
+    }
 }
 
 .menuItems {
@@ -54,45 +255,59 @@
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
     padding: 0.8rem 1.2rem;
+    
+    /* Simple and clean - transparent within glass container */
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    
+    /* Soft, rounded edges */
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: none;
+    
+    /* No shadows */
+    box-shadow: none;
+    
     color: #525355;
     overflow: hidden;
 }
 
+/* Droip refraction layer for individual menu items */
 .menuItems::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        transparent 60%,
+        rgba(6, 182, 212, 0.1) 100%
+    );
+    border-radius: 12px;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+/* Hover effect - shine animation */
+.menuItems::after {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.6s ease;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+    border-radius: 12px;
+    z-index: -1;
 }
 
-.menuItems:hover::before {
+.menuItems:hover::after {
     left: 100%;
-}
-
-.menuItems::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #c026d3, #06b6d4);
-    transition: width 0.3s ease;
-    border-radius: 1px;
-}
-
-.menuItems:hover::after,
-.menuItems.active::after {
-    width: 100%;
 }
 
 .menuItems span{
@@ -104,10 +319,10 @@
 
 .menuItems:hover {
     color: #c026d3;
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(192, 38, 211, 0.3);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(192, 38, 211, 0.15);
+    background: rgba(255, 255, 255, 0.08);
+    border: none;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .menuItems:hover span {
@@ -129,8 +344,6 @@
     position: relative;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(192, 38, 211, 0.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
 }
 
 .resume::before {

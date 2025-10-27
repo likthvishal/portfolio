@@ -88,52 +88,44 @@
     },
     "projects": {
         "1":{
-            "name": "Churn Predictor",
-            "description": "A Churn Prediction Machine Learning Pipeline achieving 96.3% accuracy, designed to proactively reduce churn by delivering personalized incentives and targeted offers.",
-            "image": "churn-predictor.png",
+            "name": "Image-model-application-using-LLMS-and-Gemini-Pro",
+            "description": "Developed an end-to-end multimodal AI application leveraging Gemini Pro, integrating both text and image analysis for comprehensive generative capabilities in Q&A, summarization, and image description. Implemented a scalable, interactive interface using Streamlit for seamless user interaction with the AI model, achieving real-time response for 60 queries per minute. Built a robust back-end architecture to handle API integration with Google Generative AI, optimizing the system for efficiency in text and image processing tasks. Enhanced model deployment efficiency by setting up environment management and API security through .env configurations, streamlining the generative AI workflow.",
+            "image": "gi.png",
             "link": "",
-            "github": "https://github.com/agrawalabr/churn-predictor",
-            "skills": ["AWS", "Python", "Scikit-learn", "Pandas", "github"]
+            "github": "",
+            "skills": ["Python", "Streamlit", "Gemini Pro", "Google Generative AI", "API Integration"]
         },
         "2": {
-            "name": "AI-Powered Intelligent Assistant",
-            "description": "An all-in-one web application leveraging NLP, machine learning, and OpenAI services to enable automated document workflows, intelligent knowledge retrieval, and secure role-based access, enhancing operational efficiency and decision intelligence.",
+            "name": "CalorieAdvisor GENAI Doctor",
+            "description": "Developed an AI-powered health application leveraging Google Gemini Pro Vision API to analyze real-time meal nutrition. The app enables users to upload food images and instantly receive a detailed breakdown of calories, macronutrients (carbohydrates, proteins, fats), fiber, and sugar content. It provides actionable insights into meal balance, highlights nutritional imbalances, and offers personalized health recommendations. Implemented using Streamlit for UI, integrated API calls for real-time image-based analysis, and ensured secure API key handling through .env configurations. This project showcases expertise in AI integrations, API utilization, and creating impactful user-centric applications.",
+            "image": "churn-predictor.png",
+            "link": "",
+            "github": "",
+            "skills": ["Python", "Streamlit", "Gemini Pro Vision", "Image Analysis", "Health Tech"]
+        },
+        "3": {
+            "name": "Sentiment Analysis with ChatGPT and Google Gemini APIs",
+            "description": "Implemented a robust sentiment analysis pipeline leveraging OpenAI's GPT-4 (ChatGPT) and Google Gemini APIs for classifying sentiments in over 10,000 textual samples. Utilized Zero-Shot and Few-Shot Learning techniques, achieving 90% accuracy and 88% precision in sentiment classification. Enhanced performance by 25% through optimized preprocessing, including lowercasing and removing non-alphanumeric characters. Successfully integrated APIs for scalable sentiment classification, leveraging free API credits. Evaluated model performance using metrics like accuracy, precision, recall, and F1 score, showcasing expertise in LLM integration and real-time text analysis workflows.",
             "image": "ai-assistant.png",
             "link": "",
             "github": "",
-            "skills": ["AWS", "OpenAI", "NLTK", "Flask"]
-        },
-        "3": {
-            "name": "Metadata-Driven Data Pipeline Manager",
-            "description": "A dynamic web service automating data pipeline orchestration, management, and sharing across Snowflake, S3, Databricks and other data warehouses, enhancing efficiency and scalability.",
-            "image": "Metadata-Driven Data Pipeline Manager.png",
-            "link": "",
-            "github": "",
-            "skills": ["AWS", "Snowflake", "Databricks", "Python", "Scala", "Airflow"]
+            "skills": ["Python", "GPT-4", "Gemini API", "Zero-Shot Learning", "Sentiment Analysis", "NLP"]
         },
         "4": {
-            "name": "Abhishek Agrawal's Portfolio",
-            "description": "A portfolio website built with a modern tech stack, featuring an intuitive interface to showcase my projects, skills, and experiences, with seamless navigation and optimized performance.",
+            "name": "Blog Generation LLM",
+            "description": "Implemented a blog generation app using the LLaMA 2 model, achieving 90% content relevance and reducing response times to under 2 seconds. Integrated user customization features, increasing engagement by 25%. Managed the entire lifecycle, from training on a 10,000-sample dataset to deployment.",
             "image": "portfolio.png",
-            "link": "https://agrawalabr-portfolio.web.app",
-            "github": "https://github.com/agrawalabr/portfolio",
-            "skills": ["React", "HTML", "CSS", "Javascript", "github"]
+            "link": "",
+            "github": "",
+            "skills": ["LLaMA 2", "Python", "LLM", "Content Generation", "NLP", "Deep Learning"]
         },
         "5": {
-            "name": "Store Management System",
-            "description": "A metadata-driven web application integrated with RFID technology, enabling real-time tracking, automated stock updates, and enhanced security for efficient inventory management.",
+            "name": "Text Summarization and Classification",
+            "description": "Developed a news summarization system using TextRank and K-Means Clustering, achieving 85% precision and 82% F1-score on 1,000+ articles from BBC News and Reuters. Applied Latent Semantic Analysis (LSA) for topic modeling and tested with Logistic Regression, Random Forest, and SVM. Utilized NLTK, Scikit-learn, and Gensim for implementation.",
             "image": "jstock.png",
             "link": "",
             "github": "",
-            "skills": ["AWS", "Angular", "Flask", "PostgreSQL"]
-        },
-        "6":{
-            "name": "Multilingual Transliterator",
-            "description": "A metadata-driven web application integrated with RFID technology, enabling real-time tracking, automated stock updates, and enhanced security for efficient inventory management.",
-            "image": "transliterator.png",
-            "link": "",
-            "github": "",
-            "skills": ["Python", "Tkinter", "G-Translate", "SQLite3"]
+            "skills": ["Python", "TextRank", "K-Means Clustering", "LSA", "NLTK", "Scikit-learn", "Gensim"]
         }
     },
     "skills": {
